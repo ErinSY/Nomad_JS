@@ -1,0 +1,9 @@
+내가 헷갈렸던 것들
+1. <form>안에서 버튼을 눌렀을때, 함수가 실행되게 하려면 
+addeventlister button 이 아닌 form 자체에 'submit'event 로 설정.
+
+2. 백틱을 사용하면 굳이 + 해주지 않아도 문자열을 합칠수 있음
+   예 ) `You chose : ${secNum}, the machine chose : ${randomNum} `
+
+3. event.preventDefault()를 사용하여 브라우저에 기본 내장되어있는 기능들을 제거할 수 있다.
+  예) a 링크를 클릭하면 href로 console에 저장.
