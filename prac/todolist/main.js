@@ -1,7 +1,7 @@
 const form = document.querySelector("form");    //form tag
 const inputbox = document.querySelector("#todo--iputBox");   // input tag
 const list = document.querySelector("ul");     //ul tag
-const toDo = [];
+let toDo = [];
 
 function deleteitems(event) {
   console.dir(event);
@@ -31,8 +31,17 @@ function listItems(event) {
 }
 
 function saveitems() {
-  localStorage.setItem('Todo:',JSON.stringify(toDo))  // JSON.stringify  => 객체였던 toDO배열을 문자열로 만들어준다. 
+  localStorage.setItem('Todo',JSON.stringify(toDo))  // JSON.stringify  => 객체였던 toDO배열을 문자열로 만들어준다. 
 
 }
 
 form.addEventListener("submit", listItems);
+
+const savedTodoList = localStorage.getItem('Todo')
+const parsedTodoList =JSON.parse(savedTodoList)
+console.log(parsedTodoList)
+
+if (savedTodoList!==null){
+  toDo=parsedTodoList;
+  parsedTodoList.forEach(addlist)
+}
