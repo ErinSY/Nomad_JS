@@ -1,7 +1,7 @@
 const form = document.querySelector("form");    //form tag
 const inputbox = document.querySelector("#todo--iputBox");   // input tag
 const list = document.querySelector("ul");     //ul tag
- 
+const toDo = [];
 
 function deleteitems(event) {
   console.dir(event);
@@ -24,7 +24,15 @@ function addlist(newList) {
 function listItems(event) {
   event.preventDefault();
   const newList = inputbox.value; // 입력값 변수에 담아주기
+  toDo.push(newList)
   inputbox.value = ""; // 입력칸 비우기
   addlist(newList);
+  saveitems();
 }
+
+function saveitems() {
+  localStorage.setItem('Todo:',JSON.stringify(toDo))  // JSON.stringify  => 객체였던 toDO배열을 문자열로 만들어준다. 
+
+}
+
 form.addEventListener("submit", listItems);
